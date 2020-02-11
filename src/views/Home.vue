@@ -41,15 +41,7 @@
 </template>
 
 <script>
-import { uploadCode } from '../services';
-// import { LANG } from "../config";
-const LANG = {
-  text: 'text',
-  cpp: 'cpp',
-  python: 'python',
-  java: 'java',
-  javascript: 'js'
-};
+import { LANG, uploadCode } from '../services';
 
 export default {
   name: 'Home',
@@ -57,7 +49,7 @@ export default {
     return {
       code: '',
       lang: 'cpp',
-      langList: Reflect.ownKeys(LANG)
+      langList: LANG
     };
   },
   methods: {
@@ -65,7 +57,7 @@ export default {
       this.$notify.closeAll();
       if (this.code.length < 10) {
         this.$message.error('分享的代码长度至少为 10 个字符');
-        return false;
+        return;
       }
       try {
         const data = await uploadCode(this.code, this.lang);
