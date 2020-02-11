@@ -1,24 +1,19 @@
-# xlorpaste-fe
+# XLorPaste
 
 ## Project setup
-```
+
+```bash
 yarn install
 ```
 
 ### Compiles and hot-reloads for development
-```
-yarn serve
+
+```bash
+yarn run serve
 ```
 
 ### Compiles and minifies for production
-```
-yarn build
-```
 
-### Lints and fixes files
+```bash
+yarn run build
 ```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
