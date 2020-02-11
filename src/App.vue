@@ -1,36 +1,35 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png" />
-    <div>
-      <p>
-        If Element is successfully added to this project, you'll see an
-        <code v-text="'<el-button>'"></code>
-        below
-      </p>
-      <el-button>el-button</el-button>
-    </div>
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <paste-nav></paste-nav>
+    <router-view style="margin-top: 20px;"></router-view>
+    <paste-footer></paste-footer>
+    <el-backtop>
+      <i class="el-icon-caret-top" style="font-size: 24px"></i>
+    </el-backtop>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue';
-
+import PasteNav from './components/nav.vue';
+import PasteFooter from './components/footer.vue';
 export default {
   name: 'app',
+  data() {
+    return {};
+  },
+  methods: {},
   components: {
-    HelloWorld
+    PasteNav,
+    PasteFooter
   }
 };
 </script>
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  position: relative;
+  min-height: calc(100% - 2.4rem);
+  padding-bottom: 2.6rem;
+  box-sizing: border-box;
 }
 </style>

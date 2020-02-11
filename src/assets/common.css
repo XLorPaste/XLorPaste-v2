@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css?family=Fira+Code&display=swap&subset=latin-ext');
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  min-height: 100%;
+  font-size: 16px;
+  font-family: 'Fira Code', Consolas, sans-serif, 'PingFang SC',
+    'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', Arial;
+}
+
+a {
+  text-decoration: none;
+  color: #4183c4;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.no-select {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.no-border {
+  border-width: 0px !important;
+}
+
+.code-font {
+  font-family: 'Fira Code', Consolas, Menlo, 'PingFang SC', 'Microsoft YaHei',
+    monospace;
+}
+
+::-webkit-selection {
+  background-color: #cce2ff;
+}
+::-moz-selection {
+  background-color: #cce2ff;
+}
+::selection {
+  background-color: #cce2ff;
+}
+input::-webkit-selection,
+textarea::-webkit-selection {
+  background-color: rgba(100, 100, 100, 0.4);
+  color: rgba(0, 0, 0, 0.87);
+}
+input::-moz-selection,
+textarea::-moz-selection {
+  background-color: rgba(100, 100, 100, 0.4);
+  color: rgba(0, 0, 0, 0.87);
+}
+input::selection,
+textarea::selection {
+  background-color: rgba(100, 100, 100, 0.4);
+  color: rgba(0, 0, 0, 0.87);
+}

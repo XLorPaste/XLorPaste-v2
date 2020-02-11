@@ -2,6 +2,9 @@ import Vue from 'vue';
 import App from './App.vue';
 import router from './router';
 import './plugins/element.js';
+import './assets/common.css';
+
+console.log(process.env);
 
 Vue.config.productionTip = false;
 
