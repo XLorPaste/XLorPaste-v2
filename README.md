@@ -1,4 +1,6 @@
-# XLorPaste
+# XLorPaste - Next Generation
+
+![Node.js CI](https://github.com/XLorPaste/XLorPaste-ng/workflows/Node.js%20CI/badge.svg)
 
 ## Project setup
 
