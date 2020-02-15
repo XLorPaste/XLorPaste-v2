@@ -1,7 +1,15 @@
 import axios from 'axios';
 import { Base64 } from 'js-base64';
 
-export const LANG = ['text', 'cpp', 'python', 'java', 'javascript', 'markdown'];
+export const LANG = [
+  'text',
+  'cpp',
+  'python',
+  'java',
+  'javascript',
+  'markdown',
+  'json'
+];
 
 const api = axios.create({
   baseURL: process.env.VUE_APP_API_URL
@@ -27,7 +35,10 @@ export async function getCode(token) {
     if (LANG.includes(lang)) {
       return [
         {
-          body: Base64.decode(body),
+          body:
+            lang !== 'json'
+              ? Base64.decode(body)
+              : JSON.stringify(JSON.parse(Base64.decode(body)), null, 2),
           lang
         },
         undefined
