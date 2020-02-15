@@ -59,11 +59,11 @@ export default {
         this.$message.error('分享的代码长度至少为 10 个字符');
         return;
       }
-      try {
-        const data = await uploadCode(this.code, this.lang);
+      const [data, err] = await uploadCode(this.code, this.lang);
+      if (data) {
         const msg = `文本对应的 Token 为 <strong>${data.token}</strong><br>
-            <a href="/${data.token}"><button type="button" class="el-button el-button--text">查看文本</button></a>
-            <button type="button" class="el-button el-button--text" onclick="window.copyData('${data.token}')">复制链接</button>`;
+<a href="/${data.token}"><button type="button" class="el-button el-button--text">查看文本</button></a>
+<button type="button" class="el-button el-button--text" onclick="window.copyData('${process.env.VUE_APP_URL}${data.token}')">复制链接</button>`;
         this.$notify({
           title: '上传成功',
           type: 'success',
@@ -72,8 +72,8 @@ export default {
           duration: 0
         });
         this.code = '';
-      } catch (err) {
-        this.$message.error('上传失败');
+      } else if (err) {
+        this.$message.error(err);
       }
     }
   }

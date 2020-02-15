@@ -17,6 +17,7 @@ import {
   Option,
   Backtop
 } from 'element-ui';
+import CollapseTransition from 'element-ui/lib/transitions/collapse-transition';
 
 Vue.use(Dialog);
 Vue.use(Menu);
@@ -31,6 +32,8 @@ Vue.use(Col);
 Vue.use(Card);
 Vue.use(Option);
 Vue.use(Backtop);
+
+Vue.component(CollapseTransition.name, CollapseTransition);
 
 Vue.prototype.$message = Message;
 Vue.prototype.$notify = Notification;

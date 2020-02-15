@@ -84,11 +84,4 @@ export default {
 #paste-nav .el-input-group__prepend {
   padding: 0 10px !important;
 }
-
-#paste-nav .el-input-group__append {
-  padding: 0 12px !important;
-  border-width: 0px !important;
-  background-color: #409eff !important;
-  color: #ffffff !important;
-}
 </style>
