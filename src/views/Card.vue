@@ -44,8 +44,10 @@ export default {
         type: 'success'
       });
     },
-    async getData() {
-      const [code, err] = await getCode(this.id);
+    async getData(id) {
+      if (!id) id = this.id;
+      this.onLoad = false;
+      const [code, err] = await getCode(id);
       if (code) {
         this.code = code.body;
         this.lang = code.lang;

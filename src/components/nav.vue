@@ -50,10 +50,16 @@ export default {
           type: 'error'
         });
       } else {
-        this.$router.push({
-          name: 'Card',
-          params: { id: this.token }
-        });
+        if (
+          this.$route.name !== 'Card' ||
+          !this.$route.params ||
+          this.$route.params.id !== this.token
+        ) {
+          this.$router.push({
+            name: 'Card',
+            params: { id: this.token }
+          });
+        }
       }
       this.token = null;
     }
