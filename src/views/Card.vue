@@ -3,7 +3,7 @@
     <transition name="el-fade-in">
       <el-col v-if="onLoad" :span="20" :push="2" :xs="{ span: 22, push: 1 }">
         <el-card class="display-code">
-          <!-- <xlor-code :code="code" :lang="lang"></xlor-code> -->
+          <paste-code :source="code" :lang="lang"></paste-code>
         </el-card>
         <el-button
           type="primary"
@@ -18,13 +18,13 @@
 </template>
 
 <script>
-// import xlorCode from "./code";
+import PasteCode from '../components/code';
 import { getCode } from '../services';
 
 export default {
   name: 'PasteCard',
   components: {
-    // xlorCode
+    PasteCode
   },
   props: {
     id: String
@@ -56,15 +56,14 @@ export default {
           message: err,
           type: 'error'
         });
+        this.$router.push({ name: 'Home' });
       }
     }
   },
   computed: {
     code: {
       get() {
-        // return window.hljs.highlightAuto(this.pcode.replace(/\t/g, '    '))
-        //   .value;
-        return this.pcode;
+        return this.pcode.replace(/\t/g, '    ');
       },
       set(x) {
         this.pcode = x;
@@ -96,19 +95,18 @@ export default {
 #xlor-view .display-code > div {
   padding: 12px 2% !important;
   height: 100%;
-  width: 96%;
 }
 
 #xlor-view .copy-button {
   position: absolute;
-  right: 1.5%;
   padding: 7px 10px !important;
-  top: 9px;
+  top: 7px;
+  right: 1%;
 }
 
-@media only screen and (min-device-width: 414px) and (max-device-height: 736px) and (-webkit-device-pixel-ratio: 3) {
+/* @media only screen and (min-device-width: 414px) and (max-device-height: 736px) and (-webkit-device-pixel-ratio: 3) {
   #xlor-view .copy-button {
     top: 7px;
   }
-}
+} */
 </style>

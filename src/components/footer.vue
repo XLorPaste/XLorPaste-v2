@@ -54,7 +54,7 @@ export default {
   text-align: center;
   font-size: 0.8rem;
   line-height: 0.8rem;
-  padding-bottom: 0.2rem;
+  padding-bottom: 0.4rem;
 }
 
 .dlg-font {
