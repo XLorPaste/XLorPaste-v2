@@ -51,7 +51,8 @@ export default {
         });
       } else {
         this.$router.push({
-          path: '/' + this.codeID
+          name: 'Card',
+          params: { id: this.token }
         });
       }
       this.token = null;
