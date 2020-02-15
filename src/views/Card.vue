@@ -78,7 +78,7 @@ export default {
   },
   beforeRouteUpdate(to, from, next) {
     if (to.params.id) {
-      this.getCode(to.params.id);
+      this.getData(to.params.id);
       next();
     } else {
       next({ name: 'Home' });
