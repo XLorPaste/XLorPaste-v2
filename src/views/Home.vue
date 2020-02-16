@@ -33,6 +33,7 @@
         :autosize="{ minRows: 24 }"
         autofocus="true"
         v-model="code"
+        @paste.native="onPaste"
         @keyup.ctrl.enter.native="submit"
       >
       </el-input>
@@ -42,6 +43,7 @@
 
 <script>
 import { LANG, uploadCode } from '../services';
+import { scrollToTop } from '../util';
 
 export default {
   name: 'Home',
@@ -53,6 +55,9 @@ export default {
     };
   },
   methods: {
+    onPaste() {
+      scrollToTop(document.documentElement);
+    },
     async submit() {
       this.$notify.closeAll();
       if (this.code.length < 10) {
