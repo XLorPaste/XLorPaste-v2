@@ -18,6 +18,7 @@
         placeholder="神秘Token"
         :style="{ width: isMobile ? '100%' : '400px' }"
         @keyup.enter.native="goToken"
+        @input="handleInputChange"
       >
         <template slot="prepend">{{ baseURL }}</template>
       </el-input>
@@ -30,7 +31,10 @@ export default {
   name: 'PasteNav',
   data() {
     return {
-      baseURL: process.env.VUE_APP_URL.split('://')[1],
+      baseURL: process.env.VUE_APP_URL.replace('https://', '').replace(
+        'http://',
+        ''
+      ),
       activeIndex: 'index',
       token: null,
       width: document.body.clientWidth
@@ -42,6 +46,15 @@ export default {
     }
   },
   methods: {
+    handleInputChange() {
+      const id = this.token
+        .replace(process.env.VUE_APP_URL, '')
+        .replace(process.env.VUE_APP_URL.replace('https://', ''), '')
+        .replace(process.env.VUE_APP_URL.replace('http://', ''), '');
+      if (this.token !== id) {
+        this.token = id;
+      }
+    },
     goToken() {
       if (!this.token) {
         this.$message({
@@ -50,14 +63,15 @@ export default {
           type: 'error'
         });
       } else {
+        const id = this.token;
         if (
           this.$route.name !== 'Card' ||
           !this.$route.params ||
-          this.$route.params.id !== this.token
+          this.$route.params.id !== id
         ) {
           this.$router.push({
             name: 'Card',
-            params: { id: this.token }
+            params: { id }
           });
         }
       }
@@ -90,5 +104,10 @@ export default {
 
 #paste-nav .el-input-group__prepend {
   padding: 0 10px !important;
+}
+
+#paste-nav input {
+  font-family: 'Fira Code', Consolas, sans-serif, 'PingFang SC',
+    'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', Arial !important;
 }
 </style>
