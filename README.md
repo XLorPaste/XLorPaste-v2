@@ -19,3 +19,11 @@ yarn run serve
 ```bash
 yarn run build
 ```
+
+## Changelog
+
+Detailed changes in [CHANGELOG.md](https://github.com/XLorPaste/XLorPaste-ng/blob/master/CHANGELOG.md)
+
+## LICENSE
+
+[MIT](https://github.com/XLorPaste/XLorPaste-ng/blob/master/LICENSE)
