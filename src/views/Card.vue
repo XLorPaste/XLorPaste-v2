@@ -1,5 +1,5 @@
 <template>
-  <el-row id="xlor-view">
+  <el-row id="paste-card">
     <transition name="el-fade-in">
       <el-col v-if="onLoad" :span="20" :push="2" :xs="{ span: 22, push: 1 }">
         <el-card class="display-code">
@@ -90,16 +90,16 @@ export default {
 </script>
 
 <style>
-#xlor-view > .el-col {
+#paste-card > .el-col {
   position: relative;
 }
 
-#xlor-view .display-code > div {
+#paste-card .display-code > div {
   padding: 12px 2% !important;
   height: 100%;
 }
 
-#xlor-view .copy-button {
+#paste-card .copy-button {
   position: absolute;
   padding: 7px 10px !important;
   top: 7px;
@@ -107,7 +107,7 @@ export default {
 }
 
 /* @media only screen and (min-device-width: 414px) and (max-device-height: 736px) and (-webkit-device-pixel-ratio: 3) {
-  #xlor-view .copy-button {
+  #paste-card .copy-button {
     top: 7px;
   }
 } */
