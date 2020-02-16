@@ -34,6 +34,7 @@
         autofocus="true"
         v-model="code"
         @paste.native="onPaste"
+        @keyup.ctrl.v.native="onPaste"
         @keyup.ctrl.enter.native="submit"
       >
       </el-input>
