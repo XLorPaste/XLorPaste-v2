@@ -7,10 +7,12 @@ import './assets/common.css';
 import './plugins/element';
 import './plugins/hljs';
 
-Vue.use(VueAnalytics, {
-  id: 'UA-150361094-1',
-  router
-});
+if (process.env.VUE_APP_GA) {
+  Vue.use(VueAnalytics, {
+    id: process.env.VUE_APP_GA,
+    router
+  });
+}
 
 Vue.config.productionTip = false;
 
