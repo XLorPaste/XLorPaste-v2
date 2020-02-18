@@ -1,6 +1,5 @@
 import Vue from 'vue';
 import {
-  Dialog,
   Menu,
   MenuItem,
   Input,
@@ -13,13 +12,11 @@ import {
   Card,
   Message,
   Notification,
-  MessageBox,
   Option,
   Backtop
 } from 'element-ui';
 import CollapseTransition from 'element-ui/lib/transitions/collapse-transition';
 
-Vue.use(Dialog);
 Vue.use(Menu);
 Vue.use(MenuItem);
 Vue.use(Input);
@@ -37,7 +34,3 @@ Vue.component(CollapseTransition.name, CollapseTransition);
 
 Vue.prototype.$message = Message;
 Vue.prototype.$notify = Notification;
-Vue.prototype.$msgbox = MessageBox;
-Vue.prototype.$alert = MessageBox.alert;
-Vue.prototype.$confirm = MessageBox.confirm;
-Vue.prototype.$prompt = MessageBox.prompt;
