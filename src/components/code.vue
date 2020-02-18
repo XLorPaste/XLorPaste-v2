@@ -13,9 +13,12 @@ export default {
   },
   computed: {
     code() {
-      return hljs.lineNumbersValue(
-        hljs.highlight(this.lang, this.source).value
-      );
+      const t = hljs.highlight(this.lang, this.source);
+      if (t.illegal === true) {
+        return hljs.lineNumbersValue(hljs.highlightAuto(this.source).value);
+      } else {
+        return hljs.lineNumbersValue(t.value);
+      }
     }
   }
 };
