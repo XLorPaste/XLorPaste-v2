@@ -8,13 +8,14 @@
 
 <script>
 import VueMarkdown from 'vue-markdown';
+import { scrollToTop } from '../util';
 
 const text = `
 ## 使用指南
 
 ### 分享代码
 
-1. 选择你的想要分享的代码高亮语言，目前支持无高亮 \`文本\` 和 \`C++\` \`Python\` \`Java\` 三种语言的代码高亮；
+1. 选择你的想要分享的代码高亮语言，目前支持无高亮 \`文本\` 和 \`C++\` \`Python\` \`Java\` \`JavaScript\` 等语言的代码高亮，\`JSON\` 的解析；
 
 2. 在文本框内输入你的代码；
 
@@ -41,6 +42,8 @@ const text = `
 ### 2020-02-18
 
 修复 highlight.js 解析失败时，无法高亮代码的问题。
+
+打开关于界面，自动滚动到顶部。
 
 ### 2020-02-16
 
@@ -106,7 +109,10 @@ export default {
   },
   data: () => ({
     text
-  })
+  }),
+  mounted() {
+    scrollToTop(document.documentElement);
+  }
 };
 </script>
 
