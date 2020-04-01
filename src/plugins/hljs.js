@@ -6,12 +6,16 @@ import css from 'highlight.js/lib/languages/css';
 import python from 'highlight.js/lib/languages/python';
 import java from 'highlight.js/lib/languages/java';
 import javascript from 'highlight.js/lib/languages/javascript';
+import typescript from 'highlight.js/lib/languages/typescript';
+import rust from 'highlight.js/lib/languages/rust';
 
 hljs.registerLanguage('cpp', cpp);
 hljs.registerLanguage('css', css);
 hljs.registerLanguage('python', python);
 hljs.registerLanguage('java', java);
 hljs.registerLanguage('javascript', javascript);
+hljs.registerLanguage('typescript', typescript);
+hljs.registerLanguage('rust', rust);
 
 const TABLE_NAME = 'hljs-ln',
   LINE_NAME = 'hljs-ln-line',

@@ -13,6 +13,24 @@ export default {
   },
   computed: {
     code() {
+      if (this.lang === 'text') {
+        return hljs.lineNumbersValue(
+          this.source.replace(/[<>"& ]/g, match => {
+            switch (match) {
+              case '<':
+                return '&lt;';
+              case '>':
+                return '&gt;';
+              case '"':
+                return '&quot;';
+              case '&':
+                return '&amp;';
+              case ' ':
+                return '&nbsp;';
+            }
+          })
+        );
+      }
       const t = hljs.highlight(this.lang, this.source);
       if (t.illegal === true) {
         return hljs.lineNumbersValue(hljs.highlightAuto(this.source).value);
