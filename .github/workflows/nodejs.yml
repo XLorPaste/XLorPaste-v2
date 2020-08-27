@@ -19,6 +19,8 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: yarn install
     - run: yarn build
+      env:
+      - VUE_APP_GA: ${{ secrets.GA }}
     - name: Deploy static site to remote
       uses: garygrossgarten/github-action-scp@release
       with:
