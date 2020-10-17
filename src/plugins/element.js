@@ -2,6 +2,7 @@ import Vue from 'vue';
 import {
   Menu,
   MenuItem,
+  Autocomplete,
   Input,
   Select,
   Button,
@@ -19,6 +20,7 @@ import CollapseTransition from 'element-ui/lib/transitions/collapse-transition';
 
 Vue.use(Menu);
 Vue.use(MenuItem);
+Vue.use(Autocomplete);
 Vue.use(Input);
 Vue.use(Select);
 Vue.use(Button);

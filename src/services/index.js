@@ -1,6 +1,24 @@
 import axios from 'axios';
 import { Base64 } from 'js-base64';
 
+const TokenHistory = 'Tokens';
+
+export function tokenHistory() {
+  const tokens_ = window.localStorage.getItem(TokenHistory);
+  return tokens_ ? JSON.parse(tokens_) : [];
+}
+
+function pushToken(token) {
+  const tokens = tokenHistory();
+  const tokenSet = new Set(tokens);
+  if (!tokenSet.has(token)) {
+    window.localStorage.setItem(
+      TokenHistory,
+      JSON.stringify([token, ...tokens])
+    );
+  }
+}
+
 export const LANG = [
   'text',
   'cpp',
@@ -33,6 +51,7 @@ export async function getCode(token) {
       data: { body, lang }
     } = await api.get(`/${token}`);
     if (LANG.includes(lang)) {
+      pushToken(token);
       return [
         {
           body:

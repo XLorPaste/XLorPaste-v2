@@ -13,20 +13,24 @@
       ><router-link to="/">XLorPaste</router-link></el-menu-item
     >
     <el-menu-item index="input" class="no-border nav-input">
-      <el-input
+      <el-autocomplete
         v-model="token"
         placeholder="神秘Token"
         :style="{ width: isMobile ? '100%' : '400px' }"
         @keyup.enter.native="goToken"
+        @select="handleSelect"
         @input="handleInputChange"
+        :fetch-suggestions="querySearch"
       >
         <template slot="prepend">{{ baseURL }}</template>
-      </el-input>
+      </el-autocomplete>
     </el-menu-item>
   </el-menu>
 </template>
 
 <script>
+import { tokenHistory } from '@/services';
+
 export default {
   name: 'PasteNav',
   data() {
@@ -46,6 +50,12 @@ export default {
     }
   },
   methods: {
+    handleSelect({ value }) {
+      this.goToken(value);
+    },
+    querySearch(queryString, callback) {
+      callback(tokenHistory().map(value => ({ value })));
+    },
     handleInputChange() {
       const id = this.token
         .replace(process.env.VUE_APP_URL, '')
