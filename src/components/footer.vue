@@ -5,6 +5,8 @@
       |
       <a href="https://github.com/XLorPaste">Github</a>
       |
+      <a href="https://upptime.xlorpaste.cn/">Status</a>
+      |
       <a href="http://www.miitbeian.gov.cn">苏ICP备19000844号</a>
     </el-row>
     <el-row
@@ -28,7 +30,6 @@ export default {
   color: #909399;
   text-align: center;
   font-size: 0.8rem;
-  line-height: 0.8rem;
   padding-bottom: 0.2rem;
   line-height: 1.1rem;
 }
