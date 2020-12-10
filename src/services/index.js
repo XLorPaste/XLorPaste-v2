@@ -2,20 +2,33 @@ import axios from 'axios';
 import { Base64 } from 'js-base64';
 
 const TokenHistory = 'Tokens';
+const maxTokenHistory = 10;
 
 export function tokenHistory() {
   const tokens_ = window.localStorage.getItem(TokenHistory);
-  return tokens_ ? JSON.parse(tokens_) : [];
+  return (tokens_ ? JSON.parse(tokens_) : [])
+    .sort((lhs, rhs) => rhs.createTime - lhs.createTime)
+    .slice(0, maxTokenHistory);
 }
 
 function pushToken(token) {
-  const tokens = tokenHistory();
-  const tokenSet = new Set(tokens);
-  if (!tokenSet.has(token)) {
-    window.localStorage.setItem(
-      TokenHistory,
-      JSON.stringify([token, ...tokens])
-    );
+  try {
+    const tokens = tokenHistory();
+    const tokenSet = new Set(tokens.map(({ id }) => id));
+    if (!tokenSet.has(token)) {
+      window.localStorage.setItem(
+        TokenHistory,
+        JSON.stringify([
+          {
+            id: token,
+            createTime: new Date().valueOf()
+          },
+          ...tokens
+        ])
+      );
+    }
+  } catch (err) {
+    window.localStorage.removeItem(TokenHistory);
   }
 }
 

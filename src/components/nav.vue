@@ -54,7 +54,7 @@ export default {
       this.goToken(value);
     },
     querySearch(queryString, callback) {
-      callback(tokenHistory().map(value => ({ value })));
+      callback(tokenHistory().map(({ id }) => ({ value: id })));
     },
     handleInputChange() {
       const id = this.token
