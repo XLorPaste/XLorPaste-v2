@@ -3,11 +3,26 @@
     <el-row>
       <router-link to="About">关于 XLorPaste</router-link>
       |
-      <a href="https://github.com/XLorPaste">Github</a>
+      <a
+        href="https://github.com/XLorPaste"
+        target="_blank"
+        rel="noopener noreferrer"
+        >Github</a
+      >
       |
-      <a href="https://upptime.xlorpaste.cn/">Status</a>
+      <a
+        href="https://upptime.xlorpaste.cn/"
+        target="_blank"
+        rel="noopener noreferrer"
+        >Status</a
+      >
       |
-      <a href="http://www.miitbeian.gov.cn">苏ICP备19000844号</a>
+      <a
+        href="http://www.miitbeian.gov.cn"
+        target="_blank"
+        rel="noopener noreferrer"
+        >苏ICP备19000844号</a
+      >
     </el-row>
     <el-row
       >© 2018 <a href="mailto:yjl9903@vip.qq.com">XLor</a> All rights
