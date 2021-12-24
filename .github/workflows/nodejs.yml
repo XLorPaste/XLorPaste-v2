@@ -21,13 +21,3 @@ jobs:
     - run: yarn build
       env:
         VUE_APP_GA: ${{ secrets.GA }}
-    - name: Deploy static site to remote
-      uses: garygrossgarten/github-action-scp@release
-      with:
-        local: dist
-        remote: ${{ secrets.REMOTE_PATH }}
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.SSH_USER }}
-        password: ${{ secrets.PASSWORD }}
-      env:
-        CI: true
